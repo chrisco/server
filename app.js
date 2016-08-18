@@ -16,6 +16,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var resources = require('./routes/api/v1/resources');
 var categories = require('./routes/api/v1/categories');
+var cors = require('cors');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', routes);
 app.use('/auth', auth);
