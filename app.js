@@ -9,13 +9,13 @@ var LocalStrategy = require('passport-local').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var session = require('express-session');
 
-var routes = require('./express/routes/index');
-var auth = require('./express/routes/auth');
-var account = require('./express/routes/account');
-var login = require('./express/routes/login');
-var logout = require('./express/routes/logout');
-var resources = require('./express/routes/api/v1/resources');
-var categories = require('./express/routes/api/v1/categories');
+var routes = require('./routes/index');
+var auth = require('./routes/auth');
+var account = require('./routes/account');
+var login = require('./routes/login');
+var logout = require('./routes/logout');
+var resources = require('./routes/api/v1/resources');
+var categories = require('./routes/api/v1/categories');
 
 var app = express();
 

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../../db/knex');
+var knex = require('../db/knex');
 var GitHubStrategy = require('passport-github2').Strategy;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
