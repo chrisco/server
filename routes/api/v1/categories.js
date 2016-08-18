@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 		});
 });
 
-/* GET category by id.
+/* GET category by id.*/
 router.get('/:id', function(req, res, next) {
   db.getCategoryById(req.params.id)
   .then(function (category) {
@@ -21,17 +21,6 @@ router.get('/:id', function(req, res, next) {
       category: category
     });
   });
-});
-*/
-
-/* GET category id by category name */
-router.get('/:name', function(req, res, next) {
-	db.getCategoryIdByCategoryName(req.params.id)
-		.then(function(details) {
-			res.json({
-				details: details
-			});
-		});
 });
 
 module.exports = router;
