@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../../db/knex')
+var knex = require('../db/knex');
 
 /* GET home page. */
 
@@ -10,7 +10,7 @@ router.get('/account', ensureAuthenticated, function(req, res){
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')   // make sure this redirects to our login page
+  res.redirect('/login');   // make sure this redirects to our login page
 }
 
 module.exports = router;

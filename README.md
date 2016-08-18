@@ -13,7 +13,7 @@
 $ npm i
 $ npm start
 ```
-3. Visit http://localhost:3000/resources/
+3. Visit http://localhost:3000/api/v1/resources
 
 ## Use Online
 
