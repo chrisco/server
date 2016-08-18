@@ -12,6 +12,12 @@ module.exports = {
 		}).first();
 	},
 
+	getAllResourcesInCategory: function(category) {
+		return knex('resource').select('resource.id as resourceId', 'category_id', 'type_id', 'person_id', 'title', 'image_url', 'url', 'votes', 'description', 	'is_free', 'category.id as categoryId', 'name')
+			.join('category', 'resource.category_id', 'category.id')
+			.where('category.name', category);
+	},
+
 	getAllCategories: function() {
 		return knex('category').select();
 	},
@@ -20,18 +26,6 @@ module.exports = {
 		return knex('category').where({
 			id: id
 		}).first();
-	},
-
-	getCategoryIdByCategoryName: function(name) {
-		return knex('category').where({
-			name: name
-		}).first();
-	},
-
-	// getResourcesByCategory: function(category) {
-	// 	return knex('resource').where({
-	// 		category: category
-	// 	});
-	// },
+	}
 
 };
