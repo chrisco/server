@@ -1,12 +1,12 @@
 # WAT
 
-![Screenshot](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAR-AAAAJGQ3YzUyNTI5LWU4MTktNDU5ZC1hZDI2LTMxYzU2ODRlZWZiYQ.png)
+![Screenshot](wat-screenshot.png)
 
-* This is the __server-side__ of our decoupled app.
+* This repo is the __server-side__ of our decoupled app.
 * The __client side__ is live on the web here: https://watclient-3b85b.firebaseapp.com/
-* WAT is Reddit clone focussed on learning full-stack web development, with the MVP being focussed on JavaScript.
+* WAT is a Reddit clone geared toward providing resources for learning full-stack web development, with the MVP being focussed on JavaScript.
 * Visitors can view all the learning resources (videos, websites, books, etc.).
-* Registered users can Add, Comment, and Favorite resources.
+* Registered users can Add resources, Comment on them, and add their favorites to a list.
 
 ### Created By
 
@@ -17,7 +17,7 @@
 
 ### Key Technologies Used
 
-* [React](https://facebook.github.io/react/) (on the client side only)
+* [React](https://facebook.github.io/react/)
 * [Node.js](https://nodejs.org)
 * [Express](http://expressjs.com)
 * [Knex.js](http://knexjs.org)
@@ -39,13 +39,24 @@ __API:__
   * /resources/:id - Returns a resource by its id.
   * /resources/categories/:category - Returns all resources in a given category.
 
+### Dependencies
+
+* A [GitHub](http://github.com) account.
+* PostgreSQL
+* Node.js
+
 ### Run Locally
 
-1. Clone project and cd into project directory.
-2. Run these commands (requires Node.js):
+1. Create a new OAuth app on GitHub: https://github.com/settings/applications/new
+2. Enter these settings on the GitHub OAuth app settings page:
+  * Homepage URL: https://watserver.herokuapp.com
+  * Authorization callback URL: https://watclient-3b85b.firebaseapp.com
+2. Clone project and cd into project directory.
+3. Edit the .env file as per the .env.example file.
+4. Run these commands:
 ```
-$ npm i
 $ createdb wat
+$ npm i
 $ knex migrate:latest
 $ knex seed:run
 $ npm start
