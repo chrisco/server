@@ -42,7 +42,7 @@ __API:__
 
 ### Dependencies
 
-* A [GitHub](http://github.com) account.
+* A [GitHub](http://github.com) account
 * PostgreSQL
 * Node.js
 
