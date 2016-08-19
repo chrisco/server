@@ -2,21 +2,22 @@
 
 ![Screenshot](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAR-AAAAJGQ3YzUyNTI5LWU4MTktNDU5ZC1hZDI2LTMxYzU2ODRlZWZiYQ.png)
 
-WAT is Reddit clone focussed on full-stack web development.
+* This is the __server-side__ of our decoupled app.
+* The __client side__ is live on the web here: https://watclient-3b85b.firebaseapp.com/
+* WAT is Reddit clone focussed on learning full-stack web development, with the MVP being focussed on JavaScript.
+* Visitors can view all the learning resources (videos, websites, books, etc.).
+* Registered users can Add, Comment, and Favorite resources.
 
-Registered users can Add, Comment, and Favorite resources (videos, websites, books, etc.).
+### Created By
 
-Find it live on the web here:    
-http://watclient.herokuapp.com
+* Andrew Vandermeer
+* Andy Knolla
+* Christopher Comella
+* Steven Lawson
 
-## WAT Server
+### Key Technologies Used
 
-* This is the server-side of our W.A.T. app.
-* The repo for the client-side is here: https://github.com/WAT-WeAreTools/client
-
-#### Key Technologies Used
-
-* [React](https://facebook.github.io/react/)
+* [React](https://facebook.github.io/react/) (on the client side only)
 * [Node.js](https://nodejs.org)
 * [Express](http://expressjs.com)
 * [Knex.js](http://knexjs.org)
@@ -24,31 +25,52 @@ http://watclient.herokuapp.com
 * [Passport](http://passportjs.org) (GitHub OAuth 2 strategy)
 * [Heroku](http://heroku.com)
 
-#### Routes
+### Routes
 
-* /categories - Returns all categories.
-* /resources - Returns all resources.
-* /resources/:id - Returns a resource by its id.
-* /resources/categories/:category - Returns all resources in a given category.
+__OAuth:__    
+* /auth/github - Login user.
+* /logout - Logout user.
 
-#### Run Locally
+__API:__    
+* Root route: api/v1
+* Endpoints:
+  * /categories - Returns all categories.
+  * /resources - Returns all resources.
+  * /resources/:id - Returns a resource by its id.
+  * /resources/categories/:category - Returns all resources in a given category.
+
+### Run Locally
 
 1. Clone project and cd into project directory.
 2. Run these commands (requires Node.js):
 ```
 $ npm i
+$ createdb wat
+$ knex migrate:latest
+$ knex seed:run
 $ npm start
 ```
 Then visit:    
-http://localhost:3000/api/v1/
+http://localhost:3000/api/v1/resources   
+[or any of the other API routes listed above]
 
-#### Use Online
+### Use Online
 
-https://watserver.herokuapp.com/api/v1/
+https://watserver.herokuapp.com/api/v1/resources    
+[or any of the other API routes listed above]
 
-#### Created By
+### jQuery AJAX Request Code Sample
 
-* Andrew Vandermeer
-* Andy Knolla
-* Christopher Comella
-* Steven Lawson
+```javascript
+$(document).ready(function() { 
+	$.ajax({   
+		url: "https://watserver.herokuapp.com/api/v1/resources/categories/javascript",
+		   success: function(result) {    
+      // Do whatever you want with the result here, such as:
+      for (var i = 0; i < result.resources.length; i++) {     
+				console.log(result.resources[i])    
+			}   
+		}  
+	});
+});
+```
