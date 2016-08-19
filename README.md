@@ -17,12 +17,13 @@
 
 ### Key Technologies Used
 
-* [React](https://facebook.github.io/react/)
+* [React](https://facebook.github.io/react)
 * [Node.js](https://nodejs.org)
 * [Express](http://expressjs.com)
 * [Knex.js](http://knexjs.org)
 * [PostgreSQL](https://www.postgresql.org)
 * [Passport](http://passportjs.org) (GitHub OAuth 2 strategy)
+* [Firebase](https://firebase.google.com)
 * [Heroku](http://heroku.com)
 
 ### Routes
